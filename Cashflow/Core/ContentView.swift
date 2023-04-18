@@ -12,37 +12,49 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            TabView {
-                Text("Home")
+            TabView() {
+                HomeView()
                     .tabItem {
-                        Image(systemName: "homekit")
-                        Text("Home")
+                        NavigationLink(destination: HomeView()) {
+                            Image(systemName: "house")
+                            Text("Home")
+                        }
                     }
+                
                 Text("Wallet")
                     .tabItem {
                         Image(systemName: "folder")
                         Text("Profile")
                     }
+                
                 Text("Profile")
                     .tabItem {
                         Image(systemName: "person")
                         Text("Profile")
+                        
                     }
             }
-            .navigationBarTitle(Text(userName), displayMode: .large)
-            .navigationBarItems(trailing:
-                                    HStack {
-                Image(systemName: "bell")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 32, height: 32)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text(userName)
+                        .font(.system(size: 30, weight: .light, design: .default))
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    HStack {
+                        Image(systemName: "bell")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                    }
+                }
             }
-            )
         }
     }
 }
+
+
 
 
 struct ContentView_Previews: PreviewProvider {
