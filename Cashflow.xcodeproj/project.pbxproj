@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600ECBBD29EEF063008A2770 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600ECBBC29EEF063008A2770 /* WalletView.swift */; };
+		600ECBBF29EEF275008A2770 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600ECBBE29EEF275008A2770 /* ExpenseView.swift */; };
 		600F7E5929EEA1A800A52EA1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E5829EEA1A800A52EA1 /* Colors.swift */; };
 		600F7E5B29EEA33700A52EA1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E5A29EEA33700A52EA1 /* CardView.swift */; };
 		600F7E6229EEAEAE00A52EA1 /* ActionButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E6129EEAEAE00A52EA1 /* ActionButtonsView.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		600ECBBC29EEF063008A2770 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		600ECBBE29EEF275008A2770 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
 		600F7E5829EEA1A800A52EA1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		600F7E5A29EEA33700A52EA1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		600F7E6129EEAEAE00A52EA1 /* ActionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonsView.swift; sourceTree = "<group>"; };
@@ -42,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		600ECBBB29EEF057008A2770 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				600ECBBC29EEF063008A2770 /* WalletView.swift */,
+				600ECBBE29EEF275008A2770 /* ExpenseView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		600F7E5629EEA17D00A52EA1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +82,7 @@
 		600F7E6529EEAF3000A52EA1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				600ECBBB29EEF057008A2770 /* Wallet */,
 				600F7E6729EEB85900A52EA1 /* Transaction */,
 				600F7E6629EEAF3B00A52EA1 /* Home */,
 				600F7E5C29EEA6C100A52EA1 /* Card */,
@@ -218,11 +232,13 @@
 			files = (
 				608CC83429ED427D00EDFCAF /* HomeView.swift in Sources */,
 				600F7E5929EEA1A800A52EA1 /* Colors.swift in Sources */,
+				600ECBBF29EEF275008A2770 /* ExpenseView.swift in Sources */,
 				600F7E6229EEAEAE00A52EA1 /* ActionButtonsView.swift in Sources */,
 				608CC82229ED33A900EDFCAF /* ContentView.swift in Sources */,
 				608CC82029ED33A900EDFCAF /* CashflowApp.swift in Sources */,
 				600F7E6929EEB86800A52EA1 /* TransactionView.swift in Sources */,
 				600F7E5B29EEA33700A52EA1 /* CardView.swift in Sources */,
+				600ECBBD29EEF063008A2770 /* WalletView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,7 +37,7 @@ struct TransactionView: View {
                     Image(systemName: "paperplane")
                         .font(.system(size: 16))
                         .foregroundColor(.white)
-                        .frame(width: 48, height: 48)
+                        .frame(width: 50, height: 50)
                         .background(blackColor)
                         .cornerRadius(8)
                         .padding(.bottom, 2)
@@ -45,7 +45,7 @@ struct TransactionView: View {
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(.headline)
-                            .padding(.bottom, 1)
+                            .padding(.bottom, 2)
                         Text(item.date)
                             .font(.system(size: 12))
                             .foregroundColor(.gray)

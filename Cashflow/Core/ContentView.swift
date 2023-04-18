@@ -21,7 +21,7 @@ struct ContentView: View {
                         }
                     }
                 
-                Text("Wallet")
+                WalletView()
                     .tabItem {
                         Image(systemName: "folder")
                         Text("Wallet")
