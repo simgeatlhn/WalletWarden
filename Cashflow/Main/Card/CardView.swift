@@ -12,7 +12,7 @@ struct CardView: View {
         ZStack {
             Rectangle()
                 .fill(blackColor)
-                .frame(width: 350, height: 180)
+                .frame(width: 360, height: 180)
                 .cornerRadius(16)
             
             VStack (alignment: .leading) {
@@ -37,6 +37,7 @@ struct CardView: View {
             .padding(.trailing, 100)
         }
         .padding(.top, 24)
+        .padding(.leading, 8)
     }
 }
 

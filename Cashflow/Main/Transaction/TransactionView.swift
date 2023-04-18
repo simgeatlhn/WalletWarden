@@ -36,12 +36,16 @@ struct TransactionView: View {
                 HStack {
                     Image(systemName: "paperplane")
                         .font(.system(size: 16))
-                        .foregroundColor(blackColor)
+                        .foregroundColor(.white)
+                        .frame(width: 48, height: 48)
+                        .background(blackColor)
+                        .cornerRadius(8)
                         .padding(.bottom, 2)
                     
                     VStack(alignment: .leading) {
                         Text(item.name)
                             .font(.headline)
+                            .padding(.bottom, 1)
                         Text(item.date)
                             .font(.system(size: 12))
                             .foregroundColor(.gray)
