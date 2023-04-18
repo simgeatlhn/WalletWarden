@@ -24,7 +24,7 @@ struct ContentView: View {
                 Text("Wallet")
                     .tabItem {
                         Image(systemName: "folder")
-                        Text("Profile")
+                        Text("Wallet")
                     }
                 
                 Text("Profile")
@@ -34,6 +34,7 @@ struct ContentView: View {
                         
                     }
             }
+            .accentColor(greenColor)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text(userName)

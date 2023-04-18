@@ -10,6 +10,7 @@
 		600F7E5929EEA1A800A52EA1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E5829EEA1A800A52EA1 /* Colors.swift */; };
 		600F7E5B29EEA33700A52EA1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E5A29EEA33700A52EA1 /* CardView.swift */; };
 		600F7E6229EEAEAE00A52EA1 /* ActionButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E6129EEAEAE00A52EA1 /* ActionButtonsView.swift */; };
+		600F7E6929EEB86800A52EA1 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F7E6829EEB86800A52EA1 /* TransactionView.swift */; };
 		608CC82029ED33A900EDFCAF /* CashflowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608CC81F29ED33A900EDFCAF /* CashflowApp.swift */; };
 		608CC82229ED33A900EDFCAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608CC82129ED33A900EDFCAF /* ContentView.swift */; };
 		608CC82429ED33AA00EDFCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608CC82329ED33AA00EDFCAF /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		600F7E5829EEA1A800A52EA1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		600F7E5A29EEA33700A52EA1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		600F7E6129EEAEAE00A52EA1 /* ActionButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonsView.swift; sourceTree = "<group>"; };
+		600F7E6829EEB86800A52EA1 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		608CC81C29ED33A900EDFCAF /* Cashflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cashflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		608CC81F29ED33A900EDFCAF /* CashflowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashflowApp.swift; sourceTree = "<group>"; };
 		608CC82129ED33A900EDFCAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		600F7E6529EEAF3000A52EA1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				600F7E6729EEB85900A52EA1 /* Transaction */,
 				600F7E6629EEAF3B00A52EA1 /* Home */,
 				600F7E5C29EEA6C100A52EA1 /* Card */,
 				600F7E5E29EEA72200A52EA1 /* ActionButtons */,
@@ -80,6 +83,14 @@
 				608CC83329ED427D00EDFCAF /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		600F7E6729EEB85900A52EA1 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				600F7E6829EEB86800A52EA1 /* TransactionView.swift */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		608CC81329ED33A900EDFCAF = {
@@ -210,6 +221,7 @@
 				600F7E6229EEAEAE00A52EA1 /* ActionButtonsView.swift in Sources */,
 				608CC82229ED33A900EDFCAF /* ContentView.swift in Sources */,
 				608CC82029ED33A900EDFCAF /* CashflowApp.swift in Sources */,
+				600F7E6929EEB86800A52EA1 /* TransactionView.swift in Sources */,
 				600F7E5B29EEA33700A52EA1 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

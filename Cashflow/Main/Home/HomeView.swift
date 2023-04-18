@@ -9,11 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ScrollView {
-            VStack {
+        ScrollView (showsIndicators: false) {
+            VStack (alignment: .leading) {
                 CardView()
-                
                 ActionButtonsView()
+                TransactionView()
             }
         }
     }
