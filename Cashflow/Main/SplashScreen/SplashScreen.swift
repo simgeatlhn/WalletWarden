@@ -13,30 +13,41 @@ struct SplashScreen: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
+            
             VStack {
+                LottieView(
+                    name: "lottie",
+                    loopMode: .loop,
+                    animationSpeed: 1,
+                    contentMode: .scaleAspectFit
+                )
+                .frame(width: 90, height: 90)
+                .padding(.top, 180)
+                
                 Spacer()
                 Spacer()
                 Spacer()
                 Spacer()
-                Spacer()
-             
+                
                 VStack(alignment: .leading) {
                     Text("Manage Your")
                         .font(.system(size: 40))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
+                        .padding(.top, 40)
                     
                     Text("Finance")
                         .font(.system(size: 40))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
+                    
                     Text("Wisely")
                         .foregroundColor(greenColor)
                         .font(.system(size: 40))
                         .fontWeight(.bold)
                         .padding(.bottom, 48)
                 }
-                .padding(.trailing, 72)
+                .padding(.trailing, 64)
                 
                 Spacer()
                 
@@ -68,7 +79,7 @@ struct SplashScreen: View {
             Group {
                 if showHome {
                     ContentView()
-                        .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .opacity))
+                        .transition(.move(edge: .trailing))
                 }
             }
         )
