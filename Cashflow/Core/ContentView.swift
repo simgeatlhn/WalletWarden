@@ -26,13 +26,6 @@ struct ContentView: View {
                         Image(systemName: "folder")
                         Text("Wallet")
                     }
-                
-                Text("Profile")
-                    .tabItem {
-                        Image(systemName: "person")
-                        Text("Profile")
-                        
-                    }
             }
             .accentColor(greenColor)
             .toolbar {
