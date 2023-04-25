@@ -7,23 +7,18 @@
 
 import SwiftUI
 
-struct Item: Identifiable {
-    var id = UUID()
-    var name: String
-    var date: String
-    var price: Double
-}
-
-let itemList = [
-    Item(name: "Netflix", date:"Aug, 25, 22", price: 999.0),
-    Item(name: "Spotify", date:"Aug, 25, 22", price: 799.0),
-    Item(name: "Netflix", date:"Aug, 25, 22", price: 999.0),
-    Item(name: "Spotify", date:"Aug, 25, 22", price: 799.0),
-    Item(name: "Netflix", date:"Aug, 25, 22", price: 999.0),
-]
-
-
 struct TransactionView: View {
+    
+    @ObservedObject var walletViewModel: WalletViewModel
+    
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
+    
     var body: some View {
         VStack (alignment: .leading) {
             Text("Transaction")
@@ -32,7 +27,7 @@ struct TransactionView: View {
                 .font(.system(size: 20))
                 .padding(.bottom, 4)
             
-            ForEach(itemList) { item in
+            ForEach(walletViewModel.expenses) { expense in
                 HStack {
                     Image(systemName: "paperplane")
                         .font(.system(size: 16))
@@ -43,10 +38,10 @@ struct TransactionView: View {
                         .padding(.bottom, 2)
                     
                     VStack(alignment: .leading) {
-                        Text(item.name)
+                        Text(expense.title)
                             .font(.headline)
                             .padding(.bottom, 2)
-                        Text(item.date)
+                        Text("\(expense.date, formatter: dateFormatter)")
                             .font(.system(size: 12))
                             .foregroundColor(.gray)
                         
@@ -54,7 +49,7 @@ struct TransactionView: View {
                     HStack {
                         Text("$")
                             .font(.subheadline)
-                        Text(String(format: "%.2f", item.price))
+                        Text(String(format: "%.2f", expense.amount))
                             .font(.subheadline)
                     }
                     .frame(width: 250, alignment: .trailing)
@@ -66,9 +61,9 @@ struct TransactionView: View {
 }
 
 struct TransactionView_Previews: PreviewProvider {
+    @StateObject static private var walletViewModel = WalletViewModel()
+    
     static var previews: some View {
-        TransactionView()
+        TransactionView(walletViewModel: walletViewModel)
     }
 }
-
-

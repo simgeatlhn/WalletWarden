@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ExpenseView: View {
     
-    @State private var textInput = ""
+    @State private var expenseType = ""
+    @State private var expenseAmount = ""
+    @ObservedObject var walletViewModel: WalletViewModel
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -25,7 +27,7 @@ struct ExpenseView: View {
                 .font(.system(size: 16))
                 .padding(.all, 8)
             
-            TextField("your expense type", text: $textInput)
+            TextField("your expense type", text: $expenseType)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.all, 8)
             
@@ -35,12 +37,16 @@ struct ExpenseView: View {
                 .font(.system(size: 16))
                 .padding(.all, 8)
             
-            TextField("your expense amount", text: $textInput)
+            TextField("your expense amount", text: $expenseAmount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.all, 8)
             
             Button(action: {
-                // action
+                if let amount = Double(expenseAmount) {
+                    walletViewModel.addExpense(title: expenseType, amount: amount, date: Date())
+                    expenseType = ""
+                    expenseAmount = ""
+                }
             }) {
                 HStack {
                     Text("Save your expense")
@@ -66,7 +72,10 @@ struct ExpenseView: View {
 }
 
 struct ExpenseView_Previews: PreviewProvider {
+    @StateObject static private var walletViewModel = WalletViewModel()
+    
     static var previews: some View {
-        ExpenseView()
+        ExpenseView(walletViewModel: walletViewModel)
     }
 }
+

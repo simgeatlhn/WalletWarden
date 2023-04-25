@@ -18,6 +18,7 @@
 		608CC82429ED33AA00EDFCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608CC82329ED33AA00EDFCAF /* Assets.xcassets */; };
 		608CC82729ED33AA00EDFCAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608CC82629ED33AA00EDFCAF /* Preview Assets.xcassets */; };
 		608CC83429ED427D00EDFCAF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608CC83329ED427D00EDFCAF /* HomeView.swift */; };
+		608F2B5929F7D4D1002037A9 /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F2B5829F7D4D1002037A9 /* WalletViewModel.swift */; };
 		60B455B129F00F680068C720 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B455B029F00F680068C720 /* SplashScreen.swift */; };
 		60B455B929F019960068C720 /* lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 60B455B829F019960068C720 /* lottie.json */; };
 		60B455BB29F01A090068C720 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B455BA29F01A090068C720 /* LottieView.swift */; };
@@ -37,6 +38,7 @@
 		608CC82329ED33AA00EDFCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		608CC82629ED33AA00EDFCAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		608CC83329ED427D00EDFCAF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		608F2B5829F7D4D1002037A9 /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
 		60B455B029F00F680068C720 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		60B455B829F019960068C720 /* lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie.json; sourceTree = "<group>"; };
 		60B455BA29F01A090068C720 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				600ECBBC29EEF063008A2770 /* WalletView.swift */,
 				600ECBBE29EEF275008A2770 /* ExpenseView.swift */,
+				608F2B5829F7D4D1002037A9 /* WalletViewModel.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				608CC82029ED33A900EDFCAF /* CashflowApp.swift in Sources */,
 				600F7E6929EEB86800A52EA1 /* TransactionView.swift in Sources */,
 				600F7E5B29EEA33700A52EA1 /* CardView.swift in Sources */,
+				608F2B5929F7D4D1002037A9 /* WalletViewModel.swift in Sources */,
 				60B455BB29F01A090068C720 /* LottieView.swift in Sources */,
 				600ECBBD29EEF063008A2770 /* WalletView.swift in Sources */,
 			);
