@@ -24,6 +24,7 @@ struct BalanceInputView: View {
                 .keyboardType(.decimalPad)
             
             Button(action: {
+                UserDefaults.saveBalance(newBalance)
                 dismiss()
             }) {
                 Text("OK")
@@ -47,3 +48,14 @@ struct BalanceInputView_Previews: PreviewProvider {
     }
 }
 
+extension UserDefaults {
+    private static let balanceKey = "balance"
+    
+    static func saveBalance(_ balance: String) {
+        UserDefaults.standard.set(balance, forKey: balanceKey)
+    }
+    
+    static func getSavedBalance() -> String? {
+        return UserDefaults.standard.string(forKey: balanceKey)
+    }
+}

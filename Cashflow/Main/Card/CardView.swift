@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 struct CardView: View {
     @State private var buttonWidth: CGFloat = 90
     @State private var isShowingSheet = false
@@ -48,9 +49,18 @@ struct CardView: View {
         }
         .padding(.top, 24)
         .padding(.leading, 8)
-        .sheet(isPresented: $isShowingSheet) {
-                  BalanceInputView(newBalance: $newBalance)
-              }
+        .sheet(isPresented: $isShowingSheet, onDismiss: {
+            if let savedBalance = UserDefaults.getSavedBalance() {
+                newBalance = savedBalance
+            }
+        }) {
+            BalanceInputView(newBalance: $newBalance)
+        }
+        .onAppear {
+            if let savedBalance = UserDefaults.getSavedBalance() {
+                newBalance = savedBalance
+            }
+        }
     }
 }
 
