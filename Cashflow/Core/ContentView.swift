@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var userName = "Hello, Simge"
+    @ObservedObject var walletViewModel = WalletViewModel()
     
     var body: some View {
         NavigationView {
             TabView() {
                 HomeView()
+                    .environmentObject(walletViewModel)
                     .tabItem {
                         NavigationLink(destination: HomeView()) {
                             Image(systemName: "house")
@@ -22,6 +24,7 @@ struct ContentView: View {
                     }
                 
                 WalletView()
+                    .environmentObject(walletViewModel)
                     .tabItem {
                         Image(systemName: "folder")
                         Text("Wallet")
@@ -47,6 +50,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 
 

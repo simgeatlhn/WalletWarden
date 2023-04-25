@@ -7,8 +7,9 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
-    @StateObject private var walletViewModel = WalletViewModel()
+    @EnvironmentObject var walletViewModel: WalletViewModel
 
     var body: some View {
         ScrollView (showsIndicators: false) {
@@ -18,8 +19,15 @@ struct HomeView: View {
                 TransactionView(walletViewModel: walletViewModel)
             }
         }
+        .onReceive(walletViewModel.objectWillChange) { _ in
+            
+        }
     }
 }
+
+
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
