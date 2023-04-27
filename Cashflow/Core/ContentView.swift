@@ -29,7 +29,15 @@ struct ContentView: View {
                         Image(systemName: "creditcard.fill")
                         Text("Wallet")
                     }
+                
+                ProfileView()
+                    .environmentObject(walletViewModel)
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("Profile")
+                    }
             }
+            
             .accentColor(greenColor)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -41,19 +49,12 @@ struct ContentView: View {
                         Image(systemName: "bell")
                             .resizable()
                             .frame(width: 20, height: 20)
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .frame(width: 32, height: 32)
                     }
                 }
             }
         }
     }
 }
-
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
