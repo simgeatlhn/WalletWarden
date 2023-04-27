@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BalanceInputView: View {
     @Binding var newBalance: String
+    @State private var incomeValue = ""
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -18,13 +19,17 @@ struct BalanceInputView: View {
                 .padding(.bottom)
                 .foregroundColor(blackColor)
             
-            TextField("Enter new balance", text: $newBalance)
+            TextField("Enter income amount", text: $incomeValue)
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.decimalPad)
             
             Button(action: {
-                UserDefaults.saveBalance(newBalance)
+                if let currentBalanceValue = Double(newBalance.dropFirst()), let newIncome = Double(incomeValue) {
+                    let updatedBalance = currentBalanceValue + newIncome
+                    newBalance = "$\(updatedBalance)"
+                    UserDefaults.saveBalance(newBalance)
+                }
                 dismiss()
             }) {
                 Text("OK")
