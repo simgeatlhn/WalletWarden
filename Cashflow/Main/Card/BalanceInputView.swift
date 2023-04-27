@@ -12,6 +12,7 @@ struct BalanceInputView: View {
     @State private var incomeValue = ""
     @State private var inputString = ""
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var walletViewModel: WalletViewModel
     
     var body: some View {
         VStack {
@@ -101,6 +102,9 @@ struct BalanceInputView: View {
                         let updatedBalance = currentBalanceValue + newIncome
                         newBalance = "$\(updatedBalance)"
                         UserDefaults.saveBalance(newBalance)
+                        
+                        // Add the income transaction
+                        walletViewModel.addIncome(title: "Income", amount: newIncome, date: Date())
                     }
                 }
                 dismiss()
@@ -123,7 +127,7 @@ struct BalanceInputView_Previews: PreviewProvider {
     @State static private var sampleBalance = "$0"
     
     static var previews: some View {
-        BalanceInputView(newBalance: $sampleBalance)
+        BalanceInputView(newBalance: $sampleBalance, walletViewModel: WalletViewModel())
     }
 }
 

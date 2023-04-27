@@ -8,11 +8,12 @@
 
 import SwiftUI
 
-struct Expense: Identifiable, Codable {
-    var id = UUID()
-    var title: String
-    var amount: Double
-    var date: Date
+struct Expense: Identifiable, Codable{
+    let id: UUID
+    let title: String
+    let amount: Double
+    let date: Date
+    let isIncome: Bool
 }
 
 class WalletViewModel: ObservableObject {
@@ -25,8 +26,14 @@ class WalletViewModel: ObservableObject {
     }
     
     func addExpense(title: String, amount: Double, date: Date) {
-        let expense = Expense(title: title, amount: amount, date: date)
+        let expense = Expense(id: UUID(), title: title, amount: amount, date: date, isIncome: false)
         expenses.append(expense)
+        saveExpenses()
+    }
+    
+    func addIncome(title: String, amount: Double, date: Date) {
+        let income = Expense(id: UUID(), title: title, amount: amount, date: date, isIncome: true)
+        expenses.append(income)
         saveExpenses()
     }
     
@@ -43,4 +50,3 @@ class WalletViewModel: ObservableObject {
         }
     }
 }
-

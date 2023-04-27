@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TransactionView: View {
-    
     @ObservedObject var walletViewModel: WalletViewModel
     
     let dateFormatter: DateFormatter = {
@@ -17,7 +16,6 @@ struct TransactionView: View {
         formatter.timeStyle = .none
         return formatter
     }()
-    
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -51,6 +49,7 @@ struct TransactionView: View {
                             .font(.subheadline)
                         Text(String(format: "%.2f", expense.amount))
                             .font(.subheadline)
+                            .foregroundColor(expense.isIncome ? .green : .black)
                     }
                     .frame(width: 250, alignment: .trailing)
                 }
@@ -59,6 +58,7 @@ struct TransactionView: View {
         .padding(.top, 16)
     }
 }
+
 
 struct TransactionView_Previews: PreviewProvider {
     @StateObject static private var walletViewModel = WalletViewModel()

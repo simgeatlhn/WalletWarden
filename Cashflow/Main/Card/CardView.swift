@@ -54,7 +54,7 @@ struct CardView: View {
                 newBalance = savedBalance
             }
         }) {
-            BalanceInputView(newBalance: $newBalance)
+            BalanceInputView(newBalance: $newBalance, walletViewModel: WalletViewModel())
         }
         .onAppear {
             if let savedBalance = UserDefaults.getSavedBalance() {
