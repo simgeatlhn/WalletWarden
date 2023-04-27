@@ -26,7 +26,7 @@ struct ContentView: View {
                 WalletView()
                     .environmentObject(walletViewModel)
                     .tabItem {
-                        Image(systemName: "folder")
+                        Image(systemName: "creditcard.fill")
                         Text("Wallet")
                     }
             }
