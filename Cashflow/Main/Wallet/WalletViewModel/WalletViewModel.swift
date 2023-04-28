@@ -56,5 +56,11 @@ class WalletViewModel: ObservableObject {
             .reduce(0) { $0 + $1.amount }
         return "$\(incomeSum)"
     }
-
+    
+    var totalExpenses: String {
+        let expensesSum = expenses
+            .filter { !$0.isIncome }
+            .reduce(0) { $0 + $1.amount }
+        return "$\(expensesSum)"
+    }
 }
