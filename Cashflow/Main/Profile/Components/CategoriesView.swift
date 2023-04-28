@@ -8,26 +8,31 @@
 import SwiftUI
 
 struct CategoriesView: View {
+    @EnvironmentObject var walletViewModel: WalletViewModel
+    
     var body: some View {
         VStack(spacing: 16) {
             HStack(spacing: 16) {
-                createCategoryView(imageName: "gamecontroller", category: "Entertainment", amount: "$100", backgroundColor: blackColor, foregroundColor: .white)
-                createCategoryView(imageName: "cart", category: "Market", amount: "$50", backgroundColor: greenColor, foregroundColor: blackColor)
+                createCategoryView(imageName: "gamecontroller", category: .entertainment, backgroundColor: blackColor, foregroundColor: .white)
+                createCategoryView(imageName: "cart", category: .market, backgroundColor: greenColor, foregroundColor: blackColor)
             }
             
             HStack(spacing: 16) {
-                createCategoryView(imageName: "takeoutbag.and.cup.and.straw", category: "Food", amount: "$200", backgroundColor: greenColor, foregroundColor: blackColor)
-                createCategoryView(imageName: "house", category: "Housing", amount: "$150", backgroundColor: blackColor, foregroundColor: .white)
+                createCategoryView(imageName: "takeoutbag.and.cup.and.straw", category: .food, backgroundColor: greenColor, foregroundColor: blackColor)
+                createCategoryView(imageName: "house", category: .housing, backgroundColor: blackColor, foregroundColor: .white)
             }
         }
+        
     }
     
-    func createCategoryView(imageName: String, category: String, amount: String, backgroundColor: Color, foregroundColor: Color) -> some View {
-        VStack {
+    func createCategoryView(imageName: String, category: ExpenseCategory, backgroundColor: Color, foregroundColor: Color) -> some View {
+        let amount = walletViewModel.getTotalAmountForCategory(category: category, isIncome: false)
+        
+        return VStack {
             Image(systemName: imageName)
                 .font(.system(size: 24))
                 .foregroundColor(foregroundColor)
-            Text(category)
+            Text(category.displayName)
                 .font(.subheadline)
                 .fontWeight(.bold)
                 .foregroundColor(foregroundColor)

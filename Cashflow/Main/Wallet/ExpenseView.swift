@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ExpenseCategory: String, CaseIterable, Codable {
+enum ExpenseCategory: String, CaseIterable, Codable, Equatable {
     case food = "Food"
     case market = "Market"
     case housing = "Housing"
@@ -25,6 +25,11 @@ enum ExpenseCategory: String, CaseIterable, Codable {
             return "gamecontroller.fill"
         }
     }
+    
+    var displayName: String {
+        return self.rawValue
+    }
+    
 }
 
 struct ExpenseView: View {

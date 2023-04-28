@@ -50,6 +50,13 @@ class WalletViewModel: ObservableObject {
         }
     }
     
+    func getTotalAmountForCategory(category: ExpenseCategory, isIncome: Bool) -> String {
+        let totalAmount = expenses
+            .filter { $0.category == category && $0.isIncome == isIncome }
+            .reduce(0) { $0 + $1.amount }
+        return String(format: "$%.2f", totalAmount)
+    }
+    
     //Profile view
     var totalIncome: String {
         let incomeSum = expenses
