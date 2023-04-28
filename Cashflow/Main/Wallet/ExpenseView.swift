@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+enum ExpenseCategory: String, CaseIterable {
+    case food = "Food"
+    case market = "Market"
+    case housing = "Housing"
+    case entertainment = "Entertainment"
+}
+
 struct ExpenseView: View {
     
     @State private var expenseType = ""
     @State private var expenseAmount = ""
     @ObservedObject var walletViewModel: WalletViewModel
+    @State private var selectedExpenseCategory = ExpenseCategory.food
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -40,6 +48,21 @@ struct ExpenseView: View {
             TextField("your expense amount", text: $expenseAmount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.all, 8)
+            
+            Text("Expense category: (please choose)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .font(.system(size: 16))
+                .padding(.all, 8)
+            
+            Picker(selection: $selectedExpenseCategory, label: Text("Select").fontWeight(.bold)) {
+                ForEach(ExpenseCategory.allCases, id: \.self) { category in
+                    Text(category.rawValue)
+                        .tag(category)
+                }
+            }
+            .pickerStyle(MenuPickerStyle())
+            .padding(.all, 8)
             
             Button(action: {
                 if let amount = Double(expenseAmount) {

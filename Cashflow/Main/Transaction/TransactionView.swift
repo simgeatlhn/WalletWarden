@@ -50,6 +50,7 @@ struct TransactionView: View {
                         Text(String(format: "%.2f", expense.amount))
                             .font(.subheadline)
                             .foregroundColor(expense.isIncome ? .green : .red)
+                            .fontWeight(.bold)
                     }
                     .frame(width: 250, alignment: .trailing)
                 }
