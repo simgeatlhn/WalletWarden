@@ -50,6 +50,7 @@ class WalletViewModel: ObservableObject {
         }
     }
     
+    //Profile view
     var totalIncome: String {
         let incomeSum = expenses
             .filter { $0.isIncome }
@@ -62,5 +63,19 @@ class WalletViewModel: ObservableObject {
             .filter { !$0.isIncome }
             .reduce(0) { $0 + $1.amount }
         return "$\(expensesSum)"
+    }
+    
+    //Home-Card View
+    
+    var totalIncomeAmount: Double {
+        return expenses
+            .filter { $0.isIncome }
+            .reduce(0) { $0 + $1.amount }
+    }
+
+    var totalExpensesAmount: Double {
+        return expenses
+            .filter { !$0.isIncome }
+            .reduce(0) { $0 + $1.amount }
     }
 }

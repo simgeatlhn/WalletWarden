@@ -15,6 +15,12 @@ struct CardView: View {
     
     @EnvironmentObject var walletViewModel: WalletViewModel
     
+    private var currentBalance: String {
+        let balance = walletViewModel.totalIncomeAmount - walletViewModel.totalExpensesAmount
+        return String(format: "$%.2f", balance)
+    }
+    
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -25,7 +31,7 @@ struct CardView: View {
             VStack (alignment: .leading) {
                 Text("Your balance")
                     .foregroundColor(.white)
-                Text(newBalance)
+                Text(currentBalance)
                     .foregroundColor(.white)
                     .font(.system(size: 28))
                     .fontWeight(.bold)
