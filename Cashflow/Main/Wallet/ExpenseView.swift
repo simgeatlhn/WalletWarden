@@ -29,7 +29,6 @@ enum ExpenseCategory: String, CaseIterable, Codable, Equatable {
     var displayName: String {
         return self.rawValue
     }
-    
 }
 
 struct ExpenseView: View {
@@ -38,6 +37,7 @@ struct ExpenseView: View {
     @State private var expenseAmount = ""
     @ObservedObject var walletViewModel: WalletViewModel
     @State private var selectedExpenseCategory = ExpenseCategory.food
+    @State private var showAlert = false
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -47,27 +47,30 @@ struct ExpenseView: View {
                 .font(.system(size: 20))
                 .padding(.all, 8)
             
+            // Expense type
             Text("Expense type:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
                 .padding(.all, 8)
             
-            TextField("your expense type", text: $expenseType)
+            TextField("Enter your expense type", text: $expenseType)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.all, 8)
             
+            // Expense amount
             Text("Expense amount:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
                 .padding(.all, 8)
             
-            TextField("your expense amount", text: $expenseAmount)
+            TextField("Enter your expense amount", text: $expenseAmount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.all, 8)
             
-            Text("Expense category: (please choose)")
+            // Expense category
+            Text("Expense category:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
@@ -82,12 +85,17 @@ struct ExpenseView: View {
             .pickerStyle(MenuPickerStyle())
             .padding(.all, 8)
             
+            // Save expense button
             Button(action: {
-                if let amount = Double(expenseAmount) {
-                    let newExpense = Expense(id: UUID(), title: expenseType, amount: amount, date: Date(), isIncome: false, category: selectedExpenseCategory)
-                    walletViewModel.addExpense(expense: newExpense)
-                    expenseType = ""
-                    expenseAmount = ""
+                if expenseType.isEmpty || expenseAmount.isEmpty {
+                    showAlert = true
+                } else {
+                    if let amount = Double(expenseAmount) {
+                        let newExpense = Expense(id: UUID(), title: expenseType, amount: amount, date: Date(), isIncome: false, category: selectedExpenseCategory)
+                        walletViewModel.addExpense(expense: newExpense)
+                        expenseType = ""
+                        expenseAmount = ""
+                    }
                 }
             }) {
                 HStack {
@@ -109,9 +117,17 @@ struct ExpenseView: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 12)
             }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Incomplete Fields"),
+                    message: Text("Please enter both expense type and amount."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 }
+
 
 struct ExpenseView_Previews: PreviewProvider {
     @StateObject static private var walletViewModel = WalletViewModel()
