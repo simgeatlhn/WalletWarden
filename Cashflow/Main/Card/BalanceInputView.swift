@@ -14,6 +14,7 @@ struct BalanceInputView: View {
     @State private var title: String = ""
     @Environment(\.dismiss) var dismiss
     @ObservedObject var walletViewModel: WalletViewModel
+    @State private var showAlert = false
     
     var body: some View {
         VStack {
@@ -80,17 +81,21 @@ struct BalanceInputView: View {
             }
             
             Button(action: {
-                if let newIncome = Double(inputString) {
-                    if let currentBalanceValue = Double(newBalance.dropFirst()) {
-                        let updatedBalance = currentBalanceValue + newIncome
-                        newBalance = "$\(updatedBalance)"
-                        UserDefaults.saveBalance(newBalance)
-                        
-                        // Add the income transaction
-                        walletViewModel.addIncome(title: title, amount: newIncome, date: Date(), category: ExpenseCategory.food)
+                if title.isEmpty || inputString.isEmpty {
+                    showAlert = true
+                } else {
+                    if let newIncome = Double(inputString) {
+                        if let currentBalanceValue = Double(newBalance.dropFirst()) {
+                            let updatedBalance = currentBalanceValue + newIncome
+                            newBalance = "$\(updatedBalance)"
+                            UserDefaults.saveBalance(newBalance)
+                            
+                            // Add the income transaction
+                            walletViewModel.addIncome(title: title, amount: newIncome, date: Date(), category: ExpenseCategory.food)
+                        }
                     }
+                    dismiss()
                 }
-                dismiss()
             }) {
                 Text("OK")
                     .padding()
@@ -102,8 +107,16 @@ struct BalanceInputView: View {
             .padding(.top)
         }
         .padding()
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Incomplete Fields"),
+                message: Text("Please enter both title and income amount."),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
+
 
 
 struct BalanceInputView_Previews: PreviewProvider {

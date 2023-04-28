@@ -22,11 +22,6 @@ struct CircularSlider: View {
                     .frame(width: 200, height: 200)
                 
                 VStack {
-                    Text("Total")
-                        .fontWeight(.bold)
-                        .foregroundColor(blackColor)
-                        .font(.headline)
-                    
                     Text("\(Int(percentage * 100))%")
                         .fontWeight(.bold)
                         .foregroundColor(blackColor)
