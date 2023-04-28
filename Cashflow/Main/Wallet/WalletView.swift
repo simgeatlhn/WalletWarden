@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WalletView: View {
-    @StateObject private var walletViewModel = WalletViewModel()
+    @EnvironmentObject private var walletViewModel: WalletViewModel
     
     var body: some View {
         ScrollView (showsIndicators: false) {
@@ -26,7 +26,8 @@ struct WalletView_Previews: PreviewProvider {
     @StateObject static private var walletViewModel = WalletViewModel()
     
     static var previews: some View {
-        WalletView().environmentObject(walletViewModel)
+        WalletView()
+            .environmentObject(walletViewModel)
     }
 }
 

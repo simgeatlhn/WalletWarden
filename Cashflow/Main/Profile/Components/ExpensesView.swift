@@ -34,7 +34,7 @@ struct ExpensesView: View {
                 Text("Expenses")
                     .font(.subheadline)
                     .foregroundColor(blackColor)
-                Text(walletViewModel.totalExpenses) // Toplam harcamaları burada kullanın
+                Text(walletViewModel.totalExpenses)
                     .fontWeight(.bold)
                     .foregroundColor(blackColor)
             }

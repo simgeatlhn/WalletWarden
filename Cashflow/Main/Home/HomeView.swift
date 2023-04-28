@@ -16,7 +16,7 @@ struct HomeView: View {
             VStack (alignment: .leading) {
                 CardView()
                 ActionButtonsView()
-                TransactionView(walletViewModel: walletViewModel)
+                TransactionView()
             }
         }
         .onReceive(walletViewModel.objectWillChange) { _ in

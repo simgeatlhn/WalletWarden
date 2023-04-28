@@ -125,11 +125,14 @@ struct BalanceInputView: View {
 
 struct BalanceInputView_Previews: PreviewProvider {
     @State static private var sampleBalance = "$0"
-    
+    @StateObject static private var walletViewModel = WalletViewModel()
+
     static var previews: some View {
-        BalanceInputView(newBalance: $sampleBalance, walletViewModel: WalletViewModel())
+        BalanceInputView(newBalance: $sampleBalance, walletViewModel: walletViewModel)
+            .environmentObject(walletViewModel)
     }
 }
+
 
 extension UserDefaults {
     private static let balanceKey = "balance"

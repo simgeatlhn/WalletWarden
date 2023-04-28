@@ -13,6 +13,8 @@ struct CardView: View {
     @State private var newBalance = "$0"
     @State private var isOKButtonDisabled = true
     
+    @EnvironmentObject var walletViewModel: WalletViewModel
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -54,7 +56,7 @@ struct CardView: View {
                 newBalance = savedBalance
             }
         }) {
-            BalanceInputView(newBalance: $newBalance, walletViewModel: WalletViewModel())
+            BalanceInputView(newBalance: $newBalance, walletViewModel: walletViewModel)
         }
         .onAppear {
             if let savedBalance = UserDefaults.getSavedBalance() {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TransactionView: View {
-    @ObservedObject var walletViewModel: WalletViewModel
+    @EnvironmentObject var walletViewModel: WalletViewModel
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -64,6 +64,7 @@ struct TransactionView_Previews: PreviewProvider {
     @StateObject static private var walletViewModel = WalletViewModel()
     
     static var previews: some View {
-        TransactionView(walletViewModel: walletViewModel)
+        WalletView()
+            .environmentObject(walletViewModel)
     }
 }
