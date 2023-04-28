@@ -12,7 +12,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            CircularSlider()
+            CircularSlider(percentage: walletViewModel.totalExpensesAmount / walletViewModel.totalIncomeAmount)
                 .padding(.top,24)
             SegmentedControl(newBalance:  $newBalance, walletViewModel: walletViewModel)
                 .padding(.top,50)

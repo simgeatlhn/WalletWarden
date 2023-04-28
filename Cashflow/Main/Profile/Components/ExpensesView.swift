@@ -11,36 +11,45 @@ struct ExpensesView: View {
     @ObservedObject var walletViewModel: WalletViewModel
     
     var body: some View {
-        HStack {
-            VStack {
-                Image(systemName: "arrow.down.left.circle")
-                    .font(.system(size: 24))
-                    .foregroundColor(.white)
-                Text("Incomes")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                Text(walletViewModel.totalIncome)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+        VStack {
+            HStack {
+                VStack {
+                    Image(systemName: "arrow.down.left.circle")
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                    Text("Incomes")
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                    Text(walletViewModel.totalIncome)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                .frame(width: 180, height: 120)
+                .background(Color.black)
+                .cornerRadius(16)
+                
+                VStack {
+                    Image(systemName: "arrow.up.forward.circle")
+                        .font(.system(size: 24))
+                        .foregroundColor(blackColor)
+                    Text("Expenses")
+                        .font(.subheadline)
+                        .foregroundColor(blackColor)
+                    Text(walletViewModel.totalExpenses)
+                        .fontWeight(.bold)
+                        .foregroundColor(blackColor)
+                }
+                .frame(width: 180, height: 120)
+                .background(greenColor)
+                .cornerRadius(16)
             }
-            .frame(width: 180, height: 120)
-            .background(Color.black)
-            .cornerRadius(16)
+            .padding(.bottom, 16)
             
-            VStack {
-                Image(systemName: "arrow.up.forward.circle")
-                    .font(.system(size: 24))
-                    .foregroundColor(blackColor)
-                Text("Expenses")
-                    .font(.subheadline)
-                    .foregroundColor(blackColor)
-                Text(walletViewModel.totalExpenses)
-                    .fontWeight(.bold)
-                    .foregroundColor(blackColor)
-            }
-            .frame(width: 180, height: 120)
-            .background(greenColor)
-            .cornerRadius(16)
+            Text("You can see the percentage of your total expenses compared to your income in the circular slider.")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .padding(.top, 8)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }

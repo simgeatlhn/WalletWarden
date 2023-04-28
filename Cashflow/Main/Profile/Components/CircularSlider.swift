@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CircularSlider: View {
     @State private var sliderValue: Double = 0.5
+    var percentage: Double
     
     var body: some View {
         VStack {
@@ -17,7 +18,7 @@ struct CircularSlider: View {
                     .stroke(blackColor, style: StrokeStyle(lineWidth: 30, lineCap: .round))
                     .frame(width: 200, height: 200)
                 
-                ThumbSlider(value: $sliderValue)
+                ThumbSlider(value: $sliderValue, percentage: percentage)
                     .frame(width: 200, height: 200)
                 
                 VStack {
@@ -26,7 +27,7 @@ struct CircularSlider: View {
                         .foregroundColor(blackColor)
                         .font(.headline)
                     
-                    Text("$500")
+                    Text("\(Int(percentage * 100))%")
                         .fontWeight(.bold)
                         .foregroundColor(blackColor)
                         .font(.headline)
@@ -36,8 +37,10 @@ struct CircularSlider: View {
     }
 }
 
+
 struct ThumbSlider: View {
     @Binding var value: Double
+    var percentage: Double
     
     var body: some View {
         ZStack {
@@ -57,11 +60,15 @@ struct ThumbSlider: View {
                 self.value = Double(angle / 360)
             }
         )
+        .onAppear {
+            value = percentage
+        }
     }
 }
 
+
 struct CircularSlider_Previews: PreviewProvider {
     static var previews: some View {
-        CircularSlider()
+        CircularSlider(percentage: 0.6)
     }
 }
