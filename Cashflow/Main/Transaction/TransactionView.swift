@@ -21,17 +21,18 @@ struct TransactionView: View {
         VStack (alignment: .leading) {
             Text("Transaction")
                 .fontWeight(.bold)
-                .foregroundColor(blackColor)
+                .foregroundColor(.black)
                 .font(.system(size: 20))
                 .padding(.bottom, 4)
             
             ForEach(walletViewModel.expenses) { expense in
                 HStack {
-                    Image(systemName: "paperplane")
+                    Image(systemName: ExpenseCategory(rawValue: expense.category.rawValue)?.iconName ?? "defaultIcon")
+                    
                         .font(.system(size: 16))
                         .foregroundColor(.white)
                         .frame(width: 50, height: 50)
-                        .background(blackColor)
+                        .background(Color.black)
                         .cornerRadius(8)
                         .padding(.bottom, 2)
                     

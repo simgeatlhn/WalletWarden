@@ -87,7 +87,7 @@ struct BalanceInputView: View {
                         UserDefaults.saveBalance(newBalance)
                         
                         // Add the income transaction
-                        walletViewModel.addIncome(title: title, amount: newIncome, date: Date())
+                        walletViewModel.addIncome(title: title, amount: newIncome, date: Date(), category: ExpenseCategory.food)
                     }
                 }
                 dismiss()

@@ -7,11 +7,24 @@
 
 import SwiftUI
 
-enum ExpenseCategory: String, CaseIterable {
+enum ExpenseCategory: String, CaseIterable, Codable {
     case food = "Food"
     case market = "Market"
     case housing = "Housing"
     case entertainment = "Entertainment"
+    
+    var iconName: String {
+        switch self {
+        case .food:
+            return "leaf.fill"
+        case .market:
+            return "cart.fill"
+        case .housing:
+            return "house.fill"
+        case .entertainment:
+            return "gamecontroller.fill"
+        }
+    }
 }
 
 struct ExpenseView: View {
@@ -66,7 +79,8 @@ struct ExpenseView: View {
             
             Button(action: {
                 if let amount = Double(expenseAmount) {
-                    walletViewModel.addExpense(title: expenseType, amount: amount, date: Date())
+                    let newExpense = Expense(id: UUID(), title: expenseType, amount: amount, date: Date(), isIncome: false, category: selectedExpenseCategory)
+                    walletViewModel.addExpense(expense: newExpense)
                     expenseType = ""
                     expenseAmount = ""
                 }
