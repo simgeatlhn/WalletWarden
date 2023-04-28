@@ -11,44 +11,27 @@ struct BalanceInputView: View {
     @Binding var newBalance: String
     @State private var incomeValue = ""
     @State private var inputString = ""
+    @State private var title: String = ""
     @Environment(\.dismiss) var dismiss
     @ObservedObject var walletViewModel: WalletViewModel
     
     var body: some View {
         VStack {
-            VStack(alignment: .leading) {
-                HStack(alignment: .top) {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
-                    
-                    Text("Simge Atlıhan")
-                        .font(.system(size: 24))
-                        .padding(.top, 8)
-                }
-                
-                Divider()
-                    .background(Color.gray)
-            }
-            .padding(.bottom)
+            TextField("Enter title", text: $title)
+                .font(.system(size: 20))
+                .frame(width: 300, height: 60)
+                .background(greenColor.opacity(0.2))
+                .cornerRadius(8)
             
-            ZStack(alignment: .leading) {
-                if inputString.isEmpty {
-                    Text("Enter incomes")
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 20))
-                        .padding(.leading, 8)
-                }
-                
-                TextField("", text: $inputString)
-                    .font(.system(size: 20))
-                    .frame(width: 200, height: 60)
-                    .background(greenColor.opacity(0.2))
-                    .cornerRadius(8)
-                    .disabled(true)
-            }
+            TextField("Enter income amount", text: $inputString)
+                .font(.system(size: 20))
+                .frame(width: 300, height: 60)
+                .background(greenColor.opacity(0.2))
+                .cornerRadius(8)
+                .disabled(true)
+            
+            Divider()
+                .background(Color.gray)
             
             VStack(spacing: 8) {
                 ForEach(0..<3) { rowIndex in
@@ -104,7 +87,7 @@ struct BalanceInputView: View {
                         UserDefaults.saveBalance(newBalance)
                         
                         // Add the income transaction
-                        walletViewModel.addIncome(title: "Income", amount: newIncome, date: Date())
+                        walletViewModel.addIncome(title: title, amount: newIncome, date: Date())
                     }
                 }
                 dismiss()
@@ -126,7 +109,7 @@ struct BalanceInputView: View {
 struct BalanceInputView_Previews: PreviewProvider {
     @State static private var sampleBalance = "$0"
     @StateObject static private var walletViewModel = WalletViewModel()
-
+    
     static var previews: some View {
         BalanceInputView(newBalance: $sampleBalance, walletViewModel: walletViewModel)
             .environmentObject(walletViewModel)
