@@ -27,8 +27,7 @@ struct TransactionView: View {
             
             ForEach(walletViewModel.expenses) { expense in
                 HStack {
-                    Image(systemName: ExpenseCategory(rawValue: expense.category.rawValue)?.iconName ?? "defaultIcon")
-                    
+                    Image(systemName: expense.isIncome ? "arrow.down.left.circle.fill" : (ExpenseCategory(rawValue: expense.category.rawValue)?.iconName ?? "defaultIcon"))
                         .font(.system(size: 16))
                         .foregroundColor(.white)
                         .frame(width: 50, height: 50)
@@ -60,6 +59,7 @@ struct TransactionView: View {
         .padding(.top, 16)
     }
 }
+
 
 
 struct TransactionView_Previews: PreviewProvider {

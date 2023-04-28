@@ -16,7 +16,7 @@ enum ExpenseCategory: String, CaseIterable, Codable {
     var iconName: String {
         switch self {
         case .food:
-            return "leaf.fill"
+            return "takeoutbag.and.cup.and.straw.fill"
         case .market:
             return "cart.fill"
         case .housing:
