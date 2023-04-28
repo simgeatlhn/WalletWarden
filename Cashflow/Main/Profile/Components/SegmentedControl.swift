@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SegmentedControl: View {
     @State private var selectedSegment = 0
+    @Binding var newBalance: String
+    var walletViewModel: WalletViewModel
     
     var body: some View {
         VStack(spacing: 16) {
@@ -22,7 +24,7 @@ struct SegmentedControl: View {
             .cornerRadius(10)
             
             if selectedSegment == 0 {
-                ExpensesView()
+                ExpensesView(walletViewModel: walletViewModel)
             } else {
                 CategoriesView()
             }
@@ -35,8 +37,14 @@ struct SegmentedControl: View {
 }
 
 
+
 struct SegmentedControl_Previews: PreviewProvider {
+    @State static private var newBalancePreview = "$0"
+    static private var walletViewModelPreview = WalletViewModel()
+    
     static var previews: some View {
-        SegmentedControl()
+        SegmentedControl(newBalance: $newBalancePreview, walletViewModel: walletViewModelPreview)
+        
     }
 }
+

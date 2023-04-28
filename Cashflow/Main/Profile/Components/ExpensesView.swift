@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ExpensesView: View {
+    @ObservedObject var walletViewModel: WalletViewModel
+    
     var body: some View {
         HStack {
             VStack {
@@ -17,7 +19,7 @@ struct ExpensesView: View {
                 Text("Incomes")
                     .font(.subheadline)
                     .foregroundColor(.white)
-                Text("$100")
+                Text(walletViewModel.totalIncome)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
             }
@@ -44,8 +46,13 @@ struct ExpensesView: View {
 }
 
 
+
 struct ExpensesView_Previews: PreviewProvider {
+    static private var walletViewModelPreview = WalletViewModel()
+    
     static var previews: some View {
-        ExpensesView()
+        ExpensesView(walletViewModel: walletViewModelPreview)
     }
 }
+
+
