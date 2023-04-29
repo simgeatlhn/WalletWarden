@@ -7,26 +7,22 @@
 
 import SwiftUI
 
-
 struct HomeView: View {
     @EnvironmentObject var walletViewModel: WalletViewModel
-
+    
     var body: some View {
-        ScrollView (showsIndicators: false) {
-            VStack (alignment: .leading) {
-                CardView()
-                ActionButtonsView()
-                TransactionView()
+        GeometryReader { geometry in
+            ScrollView (showsIndicators: false) {
+                VStack (alignment: .leading) {
+                    CardView()
+                    ActionButtonsView()
+                    TransactionView()
+                }
+                .padding(.horizontal, geometry.size.width * 0.025)
             }
-        }
-        .onReceive(walletViewModel.objectWillChange) { _ in
-            
         }
     }
 }
-
-
-
 
 
 struct HomeView_Previews: PreviewProvider {

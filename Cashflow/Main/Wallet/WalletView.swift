@@ -11,15 +11,19 @@ struct WalletView: View {
     @EnvironmentObject private var walletViewModel: WalletViewModel
     
     var body: some View {
-        ScrollView (showsIndicators: false) {
-            VStack (alignment: .leading) {
-                CardView()
-                    .padding(.leading, 6)
-                ExpenseView(walletViewModel: walletViewModel)
+        GeometryReader { geometry in
+            ScrollView (showsIndicators: false) {
+                VStack (alignment: .leading) {
+                    CardView()
+                    Spacer(minLength: 16)
+                    ExpenseView(walletViewModel: walletViewModel)
+                }
             }
+            .padding(.horizontal, geometry.size.width * 0.025)
         }
     }
 }
+
 
 
 struct WalletView_Previews: PreviewProvider {

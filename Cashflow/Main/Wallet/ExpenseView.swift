@@ -56,7 +56,9 @@ struct ExpenseView: View {
             
             TextField("Enter your expense type", text: $expenseType)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.all, 8)
+                .frame(height: 40) // Set a fixed height
+                .padding(.horizontal, 16)
+                .padding(.bottom, 8)
             
             // Expense amount
             Text("Expense amount:")
@@ -67,7 +69,9 @@ struct ExpenseView: View {
             
             TextField("Enter your expense amount", text: $expenseAmount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.all, 8)
+                .frame(height: 40) // Set a fixed height
+                .padding(.horizontal, 16)
+                .padding(.bottom, 8)
             
             // Expense category
             Text("Expense category:")
@@ -84,6 +88,8 @@ struct ExpenseView: View {
             }
             .pickerStyle(MenuPickerStyle())
             .padding(.all, 8)
+            
+            Spacer()
             
             // Save expense button
             Button(action: {
@@ -114,7 +120,7 @@ struct ExpenseView: View {
                 }
                 .background(backgroundButtonColor)
                 .cornerRadius(8)
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 16)
                 .padding(.top, 12)
             }
             .alert(isPresented: $showAlert) {

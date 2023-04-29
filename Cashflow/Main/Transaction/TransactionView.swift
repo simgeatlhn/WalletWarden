@@ -42,17 +42,19 @@ struct TransactionView: View {
                         Text("\(expense.date, formatter: dateFormatter)")
                             .font(.system(size: 12))
                             .foregroundColor(.gray)
-                        
+                            .fixedSize()
                     }
+                    
+                    Spacer()
+                    
                     HStack {
                         Text("$")
-                            .font(.subheadline)
+                            .font(.system(size: 14))
                         Text(String(format: "%.2f", expense.amount))
-                            .font(.subheadline)
+                            .font(.system(size: 14))
                             .foregroundColor(expense.isIncome ? .green : .red)
                             .fontWeight(.bold)
                     }
-                    .frame(width: 250, alignment: .trailing)
                 }
             }
         }
