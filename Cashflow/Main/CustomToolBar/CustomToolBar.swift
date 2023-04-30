@@ -8,26 +8,35 @@
 import SwiftUI
 
 struct CustomToolbar: View {
-    let userName: String
+    @Binding var userName: String
+    let onHighlighterTapped: () -> Void
     
     var body: some View {
         HStack {
-            Text(userName)
+            Text("Hello, \(userName)")
                 .font(.system(size: 30, weight: .light, design: .default))
                 .padding(.leading)
             
             Spacer()
             
-            Image(systemName: "bell")
-                .resizable()
-                .frame(width: 20, height: 20)
-                .padding(.trailing)
+            Button(action: {
+                onHighlighterTapped()
+            }) {
+                Image(systemName: "highlighter")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing)
+                    .foregroundColor(blackColor)
+            }
         }
     }
 }
 
+
+
 struct CustomToolBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomToolbar(userName: "Simge")
+        CustomToolbar(userName: .constant("Simge"), onHighlighterTapped: {})
     }
 }
+
