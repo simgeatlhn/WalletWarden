@@ -15,18 +15,19 @@ struct SplashScreen: View {
             Color.black.ignoresSafeArea()
             
             VStack {
+                Spacer()
+                
                 LottieView(
                     name: "lottie",
                     loopMode: .loop,
                     animationSpeed: 1,
                     contentMode: .scaleAspectFit
                 )
-                .frame(width: 90, height: 90)
-                .padding(.top, 180)
+                .frame(width: 100, height: 100)
+                .padding(.top, 100)
+                .padding(.bottom, 100)
+          
                 
-                Spacer()
-                Spacer()
-                Spacer()
                 Spacer()
                 
                 VStack(alignment: .leading) {
@@ -64,6 +65,7 @@ struct SplashScreen: View {
                         .background(greenColor)
                         .cornerRadius(10)
                 }
+                
                 Spacer()
             }
         }
@@ -85,6 +87,7 @@ struct SplashScreen: View {
         )
     }
 }
+
 
 
 struct SplashScreen_Previews: PreviewProvider {
