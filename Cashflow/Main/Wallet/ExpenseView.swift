@@ -23,13 +23,13 @@ struct ExpenseView: View {
                 .padding(.all, 8)
             
             // Expense type
-            Text("Expense type:")
+            Text("Expense title:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
                 .padding(.all, 8)
             
-            TextField("Enter your expense type", text: $expenseType)
+            TextField("Enter your expense title", text: $expenseType)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(height: 40) // Set a fixed height
                 .padding(.horizontal, 16)
