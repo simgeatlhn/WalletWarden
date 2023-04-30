@@ -22,41 +22,55 @@ struct CardView: View {
     
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(blackColor)
-                .frame(width: 360, height: 180)
-                .cornerRadius(16)
+        VStack {
+            Spacer()
             
-            VStack (alignment: .leading) {
-                Text("Your balance")
-                    .foregroundColor(.white)
-                Text(currentBalance)
-                    .foregroundColor(.white)
-                    .font(.system(size: 28))
-                    .fontWeight(.bold)
-                Button(action: {
-                    isShowingSheet = true
+            HStack {
+                Spacer()
+                
+                ZStack {
+                    Rectangle()
+                        .fill(blackColor)
+                        .frame(width: 360, height: 180)
+                        .cornerRadius(16)
                     
-                }) {
-                    Text("Enter Incomes")
-                        .foregroundColor(blackColor)
-                        .fontWeight(.bold)
-                        .frame(width: buttonWidth, height: 10)
-                        .padding()
-                        .background(greenColor)
-                        .cornerRadius(8)
+                    VStack (alignment: .leading) {
+                        Text("Your balance")
+                            .foregroundColor(.white)
+                        Text(currentBalance)
+                            .foregroundColor(.white)
+                            .font(.system(size: 28))
+                            .fontWeight(.bold)
+                        Button(action: {
+                            isShowingSheet = true
+                            
+                        }) {
+                            Text("Enter Incomes")
+                                .foregroundColor(blackColor)
+                                .fontWeight(.bold)
+                                .frame(width: buttonWidth, height: 10)
+                                .padding()
+                                .background(greenColor)
+                                .cornerRadius(8)
+                        }
+                        .onAppear {
+                            let string = "Enter Incomes"
+                            let size = string.size(withAttributes: [.font: UIFont.boldSystemFont(ofSize: 16)])
+                            buttonWidth = size.width + 20
+                        }
+                    }
+                    .padding(.trailing, 12)
+                    .padding(.top, 24)
+                    .padding(.leading, 12)
                 }
-                .onAppear {
-                    let string = "Enter Incomes"
-                    let size = string.size(withAttributes: [.font: UIFont.boldSystemFont(ofSize: 16)])
-                    buttonWidth = size.width + 20
-                }
+                
+                Spacer()
             }
-            .padding(.trailing, 100)
+            
+            Spacer()
+            
         }
-        .padding(.top, 24)
-        .padding(.leading, 8)
+        
         .sheet(isPresented: $isShowingSheet, onDismiss: {
             if let savedBalance = UserDefaults.getSavedBalance() {
                 newBalance = savedBalance

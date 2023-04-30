@@ -105,10 +105,12 @@ struct ExpenseView: View {
                 }
             }) {
                 HStack {
+                    Spacer()
+                    
                     Text("Save your expense")
                         .foregroundColor(blackColor)
                         .fontWeight(.bold)
-                        .frame(width: 300, height: 60)
+                        .frame(maxWidth: .infinity, minHeight: 60)
                         .background(backgroundButtonColor)
                         .cornerRadius(8)
                     
@@ -117,12 +119,14 @@ struct ExpenseView: View {
                         .foregroundColor(.black)
                         .padding(.trailing, 8)
                     
+                    Spacer()
                 }
                 .background(backgroundButtonColor)
                 .cornerRadius(8)
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
             }
+            
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Incomplete Fields"),

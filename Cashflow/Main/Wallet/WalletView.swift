@@ -11,18 +11,16 @@ struct WalletView: View {
     @EnvironmentObject private var walletViewModel: WalletViewModel
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView (showsIndicators: false) {
-                VStack (alignment: .leading) {
-                    CardView()
-                    Spacer(minLength: 16)
-                    ExpenseView(walletViewModel: walletViewModel)
-                }
+        ScrollView (showsIndicators: false) {
+            VStack (alignment: .leading) {
+                CardView()
+                Spacer(minLength: 16)
+                ExpenseView(walletViewModel: walletViewModel)
             }
-            .padding(.horizontal, geometry.size.width * 0.025)
         }
     }
 }
+
 
 
 

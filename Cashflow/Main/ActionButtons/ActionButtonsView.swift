@@ -10,6 +10,8 @@ import SwiftUI
 struct ActionButtonsView: View {
     var body: some View {
         HStack {
+            Spacer()
+            
             Button(action: {
                 // action for first button
             }) {
@@ -27,6 +29,8 @@ struct ActionButtonsView: View {
                 .background(purpleColor)
                 .cornerRadius(16)
             }
+            
+            Spacer()
             
             Button(action: {
                 // action for first button
@@ -46,6 +50,8 @@ struct ActionButtonsView: View {
                 .cornerRadius(16)
             }
             
+            Spacer()
+            
             Button(action: {
                 // action for first button
             }) {
@@ -63,11 +69,13 @@ struct ActionButtonsView: View {
                 .background(blueColor)
                 .cornerRadius(16)
             }
+            
+            Spacer()
         }
         .padding(.top, 8)
-        .padding(.horizontal, 16)
     }
 }
+
 
 struct ActionButtonsView_Previews: PreviewProvider {
     static var previews: some View {
