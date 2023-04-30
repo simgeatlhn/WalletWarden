@@ -57,7 +57,6 @@ struct TransactionView: View {
                             .fontWeight(.bold)
                     }
                 }
-                .padding(.vertical, 4) //Yatay boşluklar için dikey boşluk eklendi
             }
         }
         .padding(.top, 16)
