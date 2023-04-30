@@ -7,32 +7,7 @@
 
 import SwiftUI
 
-enum ExpenseCategory: String, CaseIterable, Codable, Equatable {
-    case food = "Food"
-    case market = "Market"
-    case housing = "Housing"
-    case entertainment = "Entertainment"
-    
-    var iconName: String {
-        switch self {
-        case .food:
-            return "takeoutbag.and.cup.and.straw.fill"
-        case .market:
-            return "cart.fill"
-        case .housing:
-            return "house.fill"
-        case .entertainment:
-            return "gamecontroller.fill"
-        }
-    }
-    
-    var displayName: String {
-        return self.rawValue
-    }
-}
-
 struct ExpenseView: View {
-    
     @State private var expenseType = ""
     @State private var expenseAmount = ""
     @ObservedObject var walletViewModel: WalletViewModel
@@ -126,7 +101,7 @@ struct ExpenseView: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
             }
-            
+
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Incomplete Fields"),
