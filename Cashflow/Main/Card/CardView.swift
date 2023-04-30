@@ -37,6 +37,7 @@ struct CardView: View {
                     VStack (alignment: .leading) {
                         Text("Your balance")
                             .foregroundColor(.white)
+                            .padding(.trailing,160)
                         Text(currentBalance)
                             .foregroundColor(.white)
                             .font(.system(size: 28))

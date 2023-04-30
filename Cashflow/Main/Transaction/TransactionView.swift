@@ -24,6 +24,7 @@ struct TransactionView: View {
                 .foregroundColor(.black)
                 .font(.system(size: 20))
                 .padding(.bottom, 4)
+                .padding(.leading, 2)
             
             ForEach(walletViewModel.expenses) { expense in
                 HStack {
