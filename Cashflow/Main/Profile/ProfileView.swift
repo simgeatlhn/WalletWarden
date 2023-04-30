@@ -11,11 +11,13 @@ struct ProfileView: View {
     @ObservedObject private var walletViewModel = WalletViewModel()
     
     var body: some View {
-        VStack {
-            CircularSlider(percentage: walletViewModel.totalExpensesAmount / walletViewModel.totalIncomeAmount)
-                .padding(.top,24)
-            SegmentedControl(newBalance:  $newBalance, walletViewModel: walletViewModel)
-                .padding(.top,50)
+        ScrollView {
+            VStack {
+                CircularSlider(percentage: walletViewModel.totalExpensesAmount / walletViewModel.totalIncomeAmount)
+                    .padding(.top,24)
+                SegmentedControl(newBalance:  $newBalance, walletViewModel: walletViewModel)
+                    .padding(.top,50)
+            }
         }
     }
 }
