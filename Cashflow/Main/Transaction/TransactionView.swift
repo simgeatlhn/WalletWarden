@@ -18,7 +18,7 @@ struct TransactionView: View {
     }()
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack(alignment: .leading) {
             Text("Transaction")
                 .fontWeight(.bold)
                 .foregroundColor(.black)
@@ -27,6 +27,7 @@ struct TransactionView: View {
             
             ForEach(walletViewModel.expenses) { expense in
                 HStack {
+                    
                     Image(systemName: expense.isIncome ? "arrow.down.left.circle.fill" : (ExpenseCategory(rawValue: expense.category.rawValue)?.iconName ?? "defaultIcon"))
                         .font(.system(size: 16))
                         .foregroundColor(.white)
@@ -34,20 +35,20 @@ struct TransactionView: View {
                         .background(Color.black)
                         .cornerRadius(8)
                         .padding(.bottom, 2)
+                        .padding(.leading,1)
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 2) {
                         Text(expense.title)
                             .font(.headline)
-                            .padding(.bottom, 2)
                         Text("\(expense.date, formatter: dateFormatter)")
                             .font(.system(size: 12))
                             .foregroundColor(.gray)
-                            .fixedSize()
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     
                     Spacer()
                     
-                    HStack {
+                    HStack(spacing: 2) {
                         Text("$")
                             .font(.system(size: 14))
                         Text(String(format: "%.2f", expense.amount))
@@ -56,12 +57,12 @@ struct TransactionView: View {
                             .fontWeight(.bold)
                     }
                 }
+                .padding(.vertical, 4) //Yatay boşluklar için dikey boşluk eklendi
             }
         }
         .padding(.top, 16)
     }
 }
-
 
 
 struct TransactionView_Previews: PreviewProvider {
