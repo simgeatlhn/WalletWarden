@@ -32,7 +32,7 @@ struct TransactionView: View {
                 Button(action: {
                     walletViewModel.clearTransactions()
                 }) {
-                    Text("clean")
+                    Text("clear all")
                         .foregroundColor(.gray)
                         .padding(.trailing, 2)
                 }
