@@ -10,9 +10,19 @@ import SwiftUI
 struct ExpenseView: View {
     @State private var expenseType = ""
     @State private var expenseAmount = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    
     @ObservedObject var walletViewModel: WalletViewModel
     @State private var selectedExpenseCategory = ExpenseCategory.food
-    @State private var showAlert = false
+    
+    //Alert message
+    private func isAmountValid() -> Bool {
+        if let _ = Double(expenseAmount) {
+            return true
+        }
+        return false
+    }
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -70,6 +80,10 @@ struct ExpenseView: View {
             Button(action: {
                 if expenseType.isEmpty || expenseAmount.isEmpty {
                     showAlert = true
+                    alertMessage = "Please enter both expense type and amount."
+                } else if !isAmountValid() {
+                    showAlert = true
+                    alertMessage = "Please enter a valid numerical value for the expense amount."
                 } else {
                     if let amount = Double(expenseAmount) {
                         let newExpense = Expense(id: UUID(), title: expenseType, amount: amount, date: Date(), isIncome: false, category: selectedExpenseCategory)
@@ -101,11 +115,11 @@ struct ExpenseView: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
             }
-
+            
             .alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text("Incomplete Fields"),
-                    message: Text("Please enter both expense type and amount."),
+                    title: Text("Invalid Input"),
+                    message: Text(alertMessage),
                     dismissButton: .default(Text("OK"))
                 )
             }
