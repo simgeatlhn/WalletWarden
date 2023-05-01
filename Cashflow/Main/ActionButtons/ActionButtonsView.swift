@@ -32,7 +32,7 @@ struct ActionButtonsView: View {
                     .font(.system(size: 32))
                     .foregroundColor(.black)
                 Spacer().frame(height: 4)
-                Text("Expense")
+                Text("Expenses")
                     .font(.system(size: 16))
                     .foregroundColor(blackColor)
             }
@@ -47,7 +47,7 @@ struct ActionButtonsView: View {
                     .font(.system(size: 32))
                     .foregroundColor(.black)
                 Spacer().frame(height: 4)
-                Text("Category")
+                Text("Categories")
                     .font(.system(size: 16))
                     .foregroundColor(blackColor)
             }
