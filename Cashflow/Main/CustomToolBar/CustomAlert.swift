@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct CustomAlert: View {
     @Binding var isPresented: Bool
     @Binding var text: String
@@ -38,18 +40,18 @@ struct CustomAlert: View {
                 }
                 .padding()
                 .foregroundColor(blackColor)
-                .fontWeight(.bold)
                 .background(greenColor)
                 .cornerRadius(8)
             }
             .frame(width: 300)
             .padding()
-            .background(.white)
+            .background(Color.white)
             .cornerRadius(20)
             .opacity(isPresented ? 1 : 0)
         }
     }
 }
+
 
 struct CustomAlert_Previews: PreviewProvider {
     static var previews: some View {

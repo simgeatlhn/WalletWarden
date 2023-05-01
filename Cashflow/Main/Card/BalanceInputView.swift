@@ -12,7 +12,7 @@ struct BalanceInputView: View {
     @State private var incomeValue = ""
     @State private var inputString = ""
     @State private var title: String = ""
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var walletViewModel: WalletViewModel
     @State private var showAlert = false
     
@@ -42,7 +42,7 @@ struct BalanceInputView: View {
                                 Text("\(number)")
                                     .font(.system(size: 24))
                                     .frame(width: 64, height: 64)
-                                    .background(blackColor)
+                                    .background(Color.black)
                                     .foregroundColor(.white)
                                     .cornerRadius(8)
                             }
@@ -57,7 +57,7 @@ struct BalanceInputView: View {
                         Text("0")
                             .font(.system(size: 24))
                             .frame(width: 64, height: 64)
-                            .background(blackColor)
+                            .background(Color.black)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
@@ -70,7 +70,7 @@ struct BalanceInputView: View {
                         Image(systemName: "delete.left")
                             .font(.system(size: 24))
                             .frame(width: 64, height: 64)
-                            .background(blackColor)
+                            .background(Color.black)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
@@ -91,7 +91,7 @@ struct BalanceInputView: View {
                             walletViewModel.addIncome(title: title, amount: newIncome, date: Date(), category: ExpenseCategory.food)
                         }
                     }
-                    dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 }
             }) {
                 Text("OK")
@@ -101,6 +101,7 @@ struct BalanceInputView: View {
                     .foregroundColor(blackColor)
                     .cornerRadius(8)
             }
+            
             .padding(.top)
         }
         .padding()
@@ -125,6 +126,8 @@ struct BalanceInputView_Previews: PreviewProvider {
             .environmentObject(walletViewModel)
     }
 }
+
+
 
 
 extension UserDefaults {

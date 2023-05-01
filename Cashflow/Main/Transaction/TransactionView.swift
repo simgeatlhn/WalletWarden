@@ -77,8 +77,8 @@ struct TransactionView: View {
 
 
 struct TransactionView_Previews: PreviewProvider {
-    @StateObject static private var walletViewModel = WalletViewModel()
-    
+    @ObservedObject static private var walletViewModel = WalletViewModel()
+
     static var previews: some View {
         WalletView()
             .environmentObject(walletViewModel)
