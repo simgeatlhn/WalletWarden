@@ -34,7 +34,7 @@ struct TransactionView: View {
                 }) {
                     Text("clear all")
                         .foregroundColor(.gray)
-                        .padding(.trailing, 2)
+                        .padding(.trailing, 4)
                 }
             }
             
