@@ -31,9 +31,6 @@ struct BalanceInputView: View {
                 .cornerRadius(8)
                 .disabled(true)
             
-            Divider()
-                .background(Color.gray)
-            
             VStack(spacing: 8) {
                 ForEach(0..<3) { rowIndex in
                     HStack(spacing: 8) {
