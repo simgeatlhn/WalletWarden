@@ -10,17 +10,17 @@ import SwiftUI
 struct CircularSlider: View {
     @State private var sliderValue: Double = 0.5
     var percentage: Double
-
+    
     var body: some View {
         VStack {
             ZStack {
                 Circle()
                     .stroke(blackColor, style: StrokeStyle(lineWidth: 30, lineCap: .round))
                     .frame(width: 200, height: 200)
-
+                
                 ThumbSlider(value: $sliderValue, percentage: percentage)
                     .frame(width: 200, height: 200)
-
+                
                 VStack {
                     if percentage.isFinite {
                         Text("\(Int(percentage * 100))%")

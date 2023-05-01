@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomAlert: View {
     @Binding var isPresented: Bool
     @Binding var text: String
-
+    
     let title: String
     let message: String
     let placeholder: String
