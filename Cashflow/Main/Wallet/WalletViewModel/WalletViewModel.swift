@@ -57,6 +57,12 @@ class WalletViewModel: ObservableObject {
         return String(format: "$%.2f", totalAmount)
     }
     
+    func clearTransactions() {
+        expenses.removeAll()
+        saveExpenses()
+        UserDefaults.standard.removeObject(forKey: Self.expensesKey)
+    }
+    
     //Profile view
     var totalIncome: String {
         let incomeSum = expenses

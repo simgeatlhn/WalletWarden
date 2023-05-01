@@ -19,16 +19,27 @@ struct TransactionView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Transaction")
-                .fontWeight(.bold)
-                .foregroundColor(.black)
-                .font(.system(size: 20))
-                .padding(.bottom, 4)
-                .padding(.leading, 2)
+            HStack {
+                Text("Transaction")
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .font(.system(size: 20))
+                    .padding(.bottom, 4)
+                    .padding(.leading, 2)
+                
+                Spacer()
+                
+                Button(action: {
+                    walletViewModel.clearTransactions()
+                }) {
+                    Text("Clear")
+                        .foregroundColor(.gray)
+                        .padding(.trailing, 2)
+                }
+            }
             
             ForEach(walletViewModel.expenses) { expense in
                 HStack {
-                    
                     Image(systemName: expense.isIncome ? "arrow.down.left.circle.fill" : (ExpenseCategory(rawValue: expense.category.rawValue)?.iconName ?? "defaultIcon"))
                         .font(.system(size: 16))
                         .foregroundColor(.white)
