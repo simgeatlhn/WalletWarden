@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransactionView: View {
     @EnvironmentObject var walletViewModel: WalletViewModel
+    @State private var showAlert = false
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -30,11 +31,20 @@ struct TransactionView: View {
                 Spacer()
                 
                 Button(action: {
-                    walletViewModel.clearTransactions()
+                    // Update the button's action to toggle the showAlert state
+                    showAlert = true
                 }) {
                     Text("clear all")
                         .foregroundColor(.gray)
                         .padding(.trailing, 4)
+                }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Are you sure?"),
+                          message: Text("This will delete all transactions."),
+                          primaryButton: .destructive(Text("Yes")) {
+                        walletViewModel.clearTransactions()
+                    },
+                          secondaryButton: .cancel(Text("No")))
                 }
             }
             
@@ -78,7 +88,7 @@ struct TransactionView: View {
 
 struct TransactionView_Previews: PreviewProvider {
     @ObservedObject static private var walletViewModel = WalletViewModel()
-
+    
     static var previews: some View {
         WalletView()
             .environmentObject(walletViewModel)
