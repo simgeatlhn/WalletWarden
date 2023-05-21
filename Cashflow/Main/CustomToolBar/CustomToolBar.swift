@@ -26,7 +26,7 @@ struct CustomToolbar: View {
                     .resizable()
                     .frame(width: 20, height: 20)
                     .padding(.trailing)
-                    .foregroundColor(blackColor)
+                    .foregroundColor(.primary)
             }
         }
     }

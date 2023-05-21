@@ -33,6 +33,7 @@ struct CardView: View {
                         .fill(blackColor)
                         .frame(width: 360, height: 180)
                         .cornerRadius(16)
+                        .shadow(color: Color.primary.opacity(0.4), radius: 5)
                     
                     VStack (alignment: .leading) {
                         Text("Your balance")

@@ -28,7 +28,7 @@ struct ExpenseView: View {
         VStack (alignment: .leading) {
             Text("Add an expense")
                 .fontWeight(.bold)
-                .foregroundColor(blackColor)
+                .foregroundColor(.primary)
                 .font(.system(size: 20))
                 .padding(.all, 8)
             

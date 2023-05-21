@@ -43,6 +43,7 @@ struct CategoriesView: View {
         .frame(width: 160, height: 120)
         .background(backgroundColor)
         .cornerRadius(16)
+        .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 10)
     }
 }
 

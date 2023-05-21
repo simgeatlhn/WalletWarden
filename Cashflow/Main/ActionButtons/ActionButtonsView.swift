@@ -31,7 +31,8 @@ struct ActionButtonsView: View {
                 Image(systemName: "arrow.left.arrow.right")
                     .font(.system(size: 32))
                     .foregroundColor(.black)
-                Spacer().frame(height: 4)
+                Spacer()
+                    .frame(height: 4)
                 Text("Expenses")
                     .font(.system(size: 16))
                     .foregroundColor(blackColor)
@@ -45,7 +46,7 @@ struct ActionButtonsView: View {
             VStack(alignment: .center) {
                 Image(systemName: "square.and.arrow.down")
                     .font(.system(size: 32))
-                    .foregroundColor(.black)
+                    .foregroundColor(blackColor)
                 Spacer().frame(height: 4)
                 Text("Categories")
                     .font(.system(size: 16))

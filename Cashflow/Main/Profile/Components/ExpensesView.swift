@@ -25,8 +25,9 @@ struct ExpensesView: View {
                         .foregroundColor(.white)
                 }
                 .frame(width: 180, height: 120)
-                .background(Color.black)
+                .background(blackColor)
                 .cornerRadius(16)
+                .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 10)
                 
                 VStack {
                     Image(systemName: "arrow.up.forward.circle")
@@ -42,6 +43,7 @@ struct ExpensesView: View {
                 .frame(width: 180, height: 120)
                 .background(greenColor)
                 .cornerRadius(16)
+                .shadow(color: Color.primary.opacity(0.4), radius: 10, x: 0, y: 10)
             }
             .padding(.bottom, 16)
             

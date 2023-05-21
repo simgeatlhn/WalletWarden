@@ -17,6 +17,7 @@ struct CircularSlider: View {
                 Circle()
                     .stroke(blackColor, style: StrokeStyle(lineWidth: 30, lineCap: .round))
                     .frame(width: 200, height: 200)
+                    .shadow(color: Color.primary.opacity(0.8), radius: 5)
                 
                 ThumbSlider(value: $sliderValue, percentage: percentage)
                     .frame(width: 200, height: 200)
@@ -25,12 +26,12 @@ struct CircularSlider: View {
                     if percentage.isFinite {
                         Text("\(Int(percentage * 100))%")
                             .fontWeight(.bold)
-                            .foregroundColor(blackColor)
+                            .foregroundColor(.primary)
                             .font(.headline)
                     } else {
                         Text("0%")
                             .fontWeight(.bold)
-                            .foregroundColor(blackColor)
+                            .foregroundColor(.primary)
                             .font(.headline)
                     }
                 }

@@ -22,7 +22,7 @@ struct TransactionView: View {
             HStack {
                 Text("Transaction")
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .font(.system(size: 20))
                     .padding(.bottom, 4)
                     .padding(.leading, 2)
@@ -44,8 +44,9 @@ struct TransactionView: View {
                         .font(.system(size: 16))
                         .foregroundColor(.white)
                         .frame(width: 50, height: 50)
-                        .background(Color.black)
+                        .background(blackColor)
                         .cornerRadius(8)
+                        .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 10)
                         .padding(.bottom, 2)
                         .padding(.leading,1)
                     
