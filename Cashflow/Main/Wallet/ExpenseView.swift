@@ -41,6 +41,7 @@ struct ExpenseView: View {
             
             TextField("Enter your expense title", text: $expenseType)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                 .frame(height: 40) // Set a fixed height
                 .padding(.horizontal, 16)
                 .padding(.bottom, 8)
@@ -54,6 +55,7 @@ struct ExpenseView: View {
             
             TextField("Enter your expense amount", text: $expenseAmount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                 .frame(height: 40) // Set a fixed height
                 .padding(.horizontal, 16)
                 .padding(.bottom, 8)
