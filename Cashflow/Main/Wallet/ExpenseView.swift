@@ -81,6 +81,20 @@ struct ExpenseView: View {
             
             // Save expense button
             Button(action: {
+                if expenseType.isEmpty || expenseAmount.isEmpty {
+                    showAlert = true
+                    alertMessage = "Please enter both expense type and amount."
+                } else if !isAmountValid() {
+                    showAlert = true
+                    alertMessage = "Please enter a valid numerical value for the expense amount."
+                } else {
+                    if let amount = Double(expenseAmount) {
+                        let newExpense = Expense(id: UUID(), title: expenseType, amount: amount, date: Date(), isIncome: false, category: selectedExpenseCategory)
+                        walletViewModel.addExpense(expense: newExpense)
+                        expenseType = ""
+                        expenseAmount = ""
+                    }
+                }
             }) {
                 HStack {
                     Spacer()
