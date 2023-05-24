@@ -23,49 +23,50 @@ struct ExpenseView: View {
         }
         return false
     }
-    
     var body: some View {
         VStack (alignment: .leading) {
             Text("Add an expense")
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
                 .font(.system(size: 20))
-                .padding(.all, 8)
+                .padding(.top, 8)
+                .padding([.leading, .trailing], 16) // updated
             
             // Expense type
             Text("Expense title:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
-                .padding(.all, 8)
+                .padding(.top, 8)
+                .padding([.leading, .trailing], 16) // updated
             
             TextField("Enter your expense title", text: $expenseType)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                 .frame(height: 40) // Set a fixed height
-                .padding(.horizontal, 16)
-                .padding(.bottom, 8)
+                .padding([.leading, .trailing], 16) // updated
             
             // Expense amount
             Text("Expense amount:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
-                .padding(.all, 8)
+                .padding(.top, 8)
+                .padding([.leading, .trailing], 16) // updated
             
             TextField("Enter your expense amount", text: $expenseAmount)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .shadow(color: Color.gray.opacity(0.4), radius: 3, x: 1, y: 2)
                 .frame(height: 40) // Set a fixed height
-                .padding(.horizontal, 16)
-                .padding(.bottom, 8)
+                .padding([.leading, .trailing], 16) // updated
             
             // Expense category
             Text("Expense category:")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .font(.system(size: 16))
-                .padding(.all, 8)
+                .padding(.top, 8)
+                .padding([.leading, .trailing], 16) // updated
             
             Picker(selection: $selectedExpenseCategory, label: Text("Select").fontWeight(.bold)) {
                 ForEach(ExpenseCategory.allCases, id: \.self) { category in
@@ -74,26 +75,12 @@ struct ExpenseView: View {
                 }
             }
             .pickerStyle(MenuPickerStyle())
-            .padding(.all, 8)
+            .padding([.leading, .trailing], 16) // updated
             
             Spacer()
             
             // Save expense button
             Button(action: {
-                if expenseType.isEmpty || expenseAmount.isEmpty {
-                    showAlert = true
-                    alertMessage = "Please enter both expense type and amount."
-                } else if !isAmountValid() {
-                    showAlert = true
-                    alertMessage = "Please enter a valid numerical value for the expense amount."
-                } else {
-                    if let amount = Double(expenseAmount) {
-                        let newExpense = Expense(id: UUID(), title: expenseType, amount: amount, date: Date(), isIncome: false, category: selectedExpenseCategory)
-                        walletViewModel.addExpense(expense: newExpense)
-                        expenseType = ""
-                        expenseAmount = ""
-                    }
-                }
             }) {
                 HStack {
                     Spacer()
@@ -114,7 +101,7 @@ struct ExpenseView: View {
                 }
                 .background(backgroundButtonColor)
                 .cornerRadius(8)
-                .padding(.horizontal, 16)
+                .padding([.leading, .trailing], 16) // updated
                 .padding(.top, 12)
             }
             
@@ -126,6 +113,7 @@ struct ExpenseView: View {
                 )
             }
         }
+        .padding(.bottom, 8)
     }
 }
 

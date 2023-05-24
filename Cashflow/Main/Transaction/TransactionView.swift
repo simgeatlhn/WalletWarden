@@ -25,7 +25,7 @@ struct TransactionView: View {
                     .foregroundColor(.primary)
                     .font(.system(size: 20))
                     .padding(.bottom, 4)
-                    .padding(.leading, 2)
+                    .padding(.leading, 16)
                 
                 Spacer()
                 
@@ -34,7 +34,7 @@ struct TransactionView: View {
                 }) {
                     Text("clear all")
                         .foregroundColor(.gray)
-                        .padding(.trailing, 4)
+                        .padding(.trailing, 16)
                 }
             }
             
@@ -47,8 +47,6 @@ struct TransactionView: View {
                         .background(blackColor)
                         .cornerRadius(8)
                         .shadow(color: Color.primary.opacity(0.2), radius: 10, x: 0, y: 10)
-                        .padding(.bottom, 2)
-                        .padding(.leading,1)
                     
                     VStack(alignment: .leading, spacing: 2) {
                         Text(expense.title)
@@ -70,6 +68,7 @@ struct TransactionView: View {
                             .fontWeight(.bold)
                     }
                 }
+                .padding([.leading, .trailing], 8) // updated
             }
         }
         .padding(.top, 16)

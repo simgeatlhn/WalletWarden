@@ -18,13 +18,13 @@ struct BalanceInputView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter income title", text: $title)
+            TextField("   Enter income title", text: $title)
                 .font(.system(size: 20))
                 .frame(width: 300, height: 60)
                 .background(greenColor.opacity(0.2))
                 .cornerRadius(8)
             
-            TextField("Enter income amount", text: $inputString)
+            TextField("   Enter income amount", text: $inputString)
                 .font(.system(size: 20))
                 .frame(width: 300, height: 60)
                 .background(greenColor.opacity(0.2))
@@ -114,7 +114,6 @@ struct BalanceInputView: View {
         }
     }
 }
-
 
 
 struct BalanceInputView_Previews: PreviewProvider {

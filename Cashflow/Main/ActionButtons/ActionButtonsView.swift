@@ -14,6 +14,7 @@ struct ActionButtonsView: View {
     var body: some View {
         HStack {
             Spacer()
+                .frame(width:16)
             
             NavigationLink(destination: BalanceInputView(newBalance: $newBalance, walletViewModel: walletViewModel)) {
                 VStack(alignment: .center) {
@@ -66,6 +67,7 @@ struct ActionButtonsView: View {
             }
             
             Spacer()
+                .frame(width:16)
         }
         .padding(.top, 8)
     }
