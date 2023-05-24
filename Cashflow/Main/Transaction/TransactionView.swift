@@ -12,8 +12,7 @@ struct TransactionView: View {
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
+        formatter.dateFormat = "MMM dd, yyyy"
         return formatter
     }()
     
