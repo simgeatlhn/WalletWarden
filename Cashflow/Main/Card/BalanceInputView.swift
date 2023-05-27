@@ -45,6 +45,7 @@ struct BalanceInputView: View {
                                     .background(Color.black)
                                     .foregroundColor(.white)
                                     .cornerRadius(8)
+                                    .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                             }
                         }
                     }
@@ -60,6 +61,7 @@ struct BalanceInputView: View {
                             .background(Color.black)
                             .foregroundColor(.white)
                             .cornerRadius(8)
+                            .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                     }
                     
                     Button(action: {
@@ -73,6 +75,7 @@ struct BalanceInputView: View {
                             .background(Color.black)
                             .foregroundColor(.white)
                             .cornerRadius(8)
+                            .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
                     }
                 }
             }
