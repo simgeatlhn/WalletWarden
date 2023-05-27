@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var showingAlert = false
     @State private var newName = ""
     @StateObject private var userNameManager = UserNameManager()
-    @ObservedObject var walletViewModel = WalletViewModel()
+    @StateObject private var walletViewModel = WalletViewModel()
     
     var body: some View {
         ZStack {

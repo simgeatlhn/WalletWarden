@@ -15,13 +15,11 @@ struct WalletView: View {
             VStack (alignment: .leading) {
                 CardView()
                 Spacer(minLength: 16)
-                ExpenseView(walletViewModel: walletViewModel)
+                ExpenseView()
             }
         }
     }
 }
-
-
 
 
 struct WalletView_Previews: PreviewProvider {

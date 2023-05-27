@@ -13,7 +13,7 @@ struct ExpenseView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     
-    @ObservedObject var walletViewModel: WalletViewModel
+    @EnvironmentObject var walletViewModel: WalletViewModel
     @State private var selectedExpenseCategory = ExpenseCategory.food
     
     //Alert message
@@ -136,7 +136,9 @@ struct ExpenseView_Previews: PreviewProvider {
     @StateObject static private var walletViewModel = WalletViewModel()
     
     static var previews: some View {
-        ExpenseView(walletViewModel: walletViewModel)
+        ExpenseView()
+            .environmentObject(walletViewModel)
     }
 }
+
 

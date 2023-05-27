@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActionButtonsView: View {
     @State private var newBalance: String = "$0"
-    @StateObject private var walletViewModel = WalletViewModel()
+    @EnvironmentObject var walletViewModel: WalletViewModel
     
     var body: some View {
         HStack {
