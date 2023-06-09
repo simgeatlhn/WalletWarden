@@ -45,7 +45,7 @@
 		607639DF29FED00E00B7D0A6 /* CustomToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolBar.swift; sourceTree = "<group>"; };
 		607639E129FED40C00B7D0A6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		607639E329FED83700B7D0A6 /* UserNameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameManager.swift; sourceTree = "<group>"; };
-		608CC81C29ED33A900EDFCAF /* Cashflow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cashflow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		608CC81C29ED33A900EDFCAF /* WalletWarden.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletWarden.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		608CC81F29ED33A900EDFCAF /* CashflowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashflowApp.swift; sourceTree = "<group>"; };
 		608CC82129ED33A900EDFCAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		608CC82329ED33AA00EDFCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		608CC81D29ED33A900EDFCAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				608CC81C29ED33A900EDFCAF /* Cashflow.app */,
+				608CC81C29ED33A900EDFCAF /* WalletWarden.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				60FA7FCA29F021FC004C7B1D /* Lottie */,
 			);
 			productName = Cashflow;
-			productReference = 608CC81C29ED33A900EDFCAF /* Cashflow.app */;
+			productReference = 608CC81C29ED33A900EDFCAF /* WalletWarden.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -492,7 +492,7 @@
 				);
 				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "simgeeatlihan-gmail.com.Cashflow";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WalletWarden;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -520,7 +520,7 @@
 				);
 				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "simgeeatlihan-gmail.com.Cashflow";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WalletWarden;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
